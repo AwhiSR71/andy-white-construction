@@ -37,3 +37,15 @@ document.querySelectorAll('.job-gallery').forEach((gallery) => {
   track.querySelectorAll('img').forEach((img) => img.addEventListener('load', update));
   update();
 });
+
+// Bonus pictures: shown only when bonus.txt (next to this page) says "on". Mr White changes that one word.
+fetch('bonus.txt', { cache: 'no-store' })
+  .then((r) => (r.ok ? r.text() : ''))
+  .then((t) => {
+    if (t.trim().toLowerCase() !== 'on') return;
+    const s = document.getElementById('bonus');
+    if (!s) return;
+    s.hidden = false;
+    window.dispatchEvent(new Event('resize'));
+  })
+  .catch(() => {});
