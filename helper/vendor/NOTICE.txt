@@ -1,0 +1,14 @@
+HEIC support: heic-to version 1.5.2 by hoppergee and contributors.
+Source: https://github.com/hoppergee/heic-to
+Package: https://registry.npmjs.org/heic-to/-/heic-to-1.5.2.tgz
+License: LGPL-3.0-or-later; see HEIC-TO-LICENSE.txt and GPL-3.0.txt.
+Uses libheif 1.22.2 and libde265; original bundled copyright and license comments are retained in the worker and source archive.
+Upstream source: https://github.com/strukturag/libheif/tree/v1.22.2
+Upstream decoder source: https://github.com/strukturag/libde265
+GPL license text source: https://github.com/spdx/license-list-data/blob/main/text/GPL-3.0-or-later.txt
+
+The original npm source archive is included here as heic-to-1.5.2-original.tgz. The original exact embedded worker is heic-worker-1.5.2.original.js.
+The runtime worker is extracted from dist/csp/heic-to.js and loaded from the same origin, avoiding the package's blob-worker loader. One local modification checks dimensions before RGBA allocation and rejects images above 60 megapixels. No codec logic was otherwise changed. Its replacement source is directly available as heic-worker-1.5.2.js; it may be replaced with a compatible LGPL build.
+Our photo-heic.js adapter is separate application code. Every conversion creates a dedicated worker and terminates it after result/error/timeout to release the decoder heap. No photographs are uploaded.
+
+Additional source archives: libheif-v1.22.2-source.tar.gz and libde265-v1.0.16-source.tar.gz, from the upstream release tags referenced by this package/build documentation. Retained upstream source contains its own license/copyright files. No source archive is executed.

@@ -43,8 +43,8 @@ const config={
     },
     {
       "id": "townsquare",
-      "title": "3. Give Townsquare the owner’s instruction",
-      "body": "Townsquare may need this directly from you. Send from andywhitellc@gmail.com, or the email already registered on the account. Andrew can prepare and follow up; Townsquare controls its identity checks and release process.",
+      "title": "3. If Townsquare needs the account owner",
+      "body": "After your written yes, Andrew contacts Townsquare and copies you. Use this owner-confirmation draft only if Townsquare or Andrew asks you to send it. That avoids sending the same request twice. If asked, send from andywhitellc@gmail.com or the email already registered on the account.",
       "email": {
         "to": "clients@townsquareinteractive.com",
         "subject": "Owner request — Andy White Construction website, domain and Google listing",

@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#1b3b28">
 <title>Your website helper</title>
 <link rel="stylesheet" href="styles.css">
-<script defer src="client-config.js"></script><script defer src="logic.js"></script><script defer src="app.js"></script><script defer src="takeover.js"></script>
+<script defer src="client-config.js"></script><script defer src="logic.js"></script><script defer src="photo-heic.js"></script><script defer src="app.js"></script><script defer src="takeover.js"></script>
 </head>
 <body>
 <header><p class="brand" id="clientBrand">Your website helper</p><p class="eyebrow">Your website helper</p></header>
@@ -34,7 +34,7 @@
 <h2 id="heading1" tabindex="-1">1. Choose your photos</h2>
 <p>Choose up to 6 from your iPhone or computer. The originals stay as they are.</p>
 <label class="button primary file-button" for="photos">Choose photos</label>
-<input class="file-input" id="photos" type="file" accept="image/*" multiple>
+<input class="file-input" id="photos" type="file" accept="image/*,.heic,.heif" multiple>
 <p class="quiet">Your photos stay in this browser. Nothing is sent to a website or social account by this helper.</p>
 <div id="photoList" class="photo-grid"></div>
 <p id="photoCount" class="count">No photos chosen yet.</p>
@@ -67,6 +67,6 @@
 </section>
 </div>
 <noscript><p>Please open this helper in Safari, Edge or Chrome with JavaScript enabled.</p></noscript>
-<footer><p>Free to use. No new account needed.</p><p>Photos stay in this browser session. Save prepared copies before closing or refreshing. Your original photos stay on your device. Checkmarks are only your own notes saved in this browser.</p><details><summary>Keep this helper handy</summary><p>On iPhone, open the helper’s web link in Safari. Use Safari’s Share menu, then Add to Home Screen. On Windows, bookmark the web link in Edge or Chrome. If a menu looks different, use the browser bookmark instead.</p></details></footer>
+<footer><p>Free to use. No new account needed. <a class="inline-link" href="vendor/NOTICE.txt" target="_blank" rel="noopener">Photo reader credits</a></p><p>Photos stay in this browser session. Save prepared copies before closing or refreshing. Your original photos stay on your device. Checkmarks are only your own notes saved in this browser.</p><details><summary>Keep this helper handy</summary><p>On iPhone, open the helper’s web link in Safari. Use Safari’s Share menu, then Add to Home Screen. On Windows, bookmark the web link in Edge or Chrome. If a menu looks different, use the browser bookmark instead.</p></details></footer>
 </main>
 </body></html>
