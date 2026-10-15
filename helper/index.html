@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#1b3b28">
+<title>Your website helper</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="client-config.js"></script><script defer src="logic.js"></script><script defer src="app.js"></script><script defer src="takeover.js"></script>
+</head>
+<body>
+<header><p class="brand" id="clientBrand">Your website helper</p><p class="eyebrow">Your website helper</p></header>
+<main>
+<section id="takeover" aria-labelledby="takeoverTitle">
+<h1 id="takeoverTitle">Your new website.<br>One step at a time.</h1>
+<p class="intro">Start at the top. Each step gives you the link or ready-to-use message you need.</p>
+<p class="quiet">Your new site is ready to preview. Your business domain still needs the provider’s handoff. Opening a link or checking a box here does not complete anything with a provider.</p>
+<button id="startHere" class="primary">Start here</button>
+<p id="preparationNote" class="quiet"></p>
+<div id="takeoverTasks"></div>
+<button id="openPhotos" class="primary">Get photos ready for a post</button>
+<p class="quiet">No password sharing. No new app account needed.</p>
+<p id="takeoverStatus" role="status" aria-live="polite"></p>
+</section>
+<div id="photoHelper" hidden>
+<button id="backHome" class="text-button">Back to website steps</button>
+<h1>Show your good work.</h1>
+<p class="intro">Pick a few photos. Add a few words. Get them ready to post.</p>
+<ol class="steps" aria-label="Your progress"><li id="progress1" aria-current="step">1. Photos</li><li id="progress2">2. Words</li><li id="progress3">3. Ready</li></ol>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+<section id="step1" aria-labelledby="heading1">
+<h2 id="heading1" tabindex="-1">1. Choose your photos</h2>
+<p>Choose up to 6 from your iPhone or computer. The originals stay as they are.</p>
+<label class="button primary file-button" for="photos">Choose photos</label>
+<input class="file-input" id="photos" type="file" accept="image/*" multiple>
+<p class="quiet">Your photos stay in this browser. Nothing is sent to a website or social account by this helper.</p>
+<div id="photoList" class="photo-grid"></div>
+<p id="photoCount" class="count">No photos chosen yet.</p>
+<button id="toWords" class="primary" disabled>Next: a few words</button>
+</section>
+<section id="step2" aria-labelledby="heading2" hidden>
+<h2 id="heading2" tabindex="-1">2. A few words</h2>
+<p>These are optional. Change the finished wording before you post.</p>
+<label for="job">What kind of job?</label>
+<select id="job"><option value="other">A look at our work</option><option value="bathroom">Bathroom</option><option value="kitchen">Kitchen</option><option value="deck">Deck</option><option value="dock">Dock</option><option value="fence">Fence</option><option value="repair">Home repair</option></select>
+<label for="town">Town <span class="optional">(optional)</span></label><input id="town" maxlength="70" placeholder="For example, Lebanon" autocomplete="address-level2">
+<label for="note">Anything you want to say? <span class="optional">(optional)</span></label><textarea id="note" rows="3" maxlength="350" placeholder="For example, new cedar boards and a solid handrail."></textarea>
+<p class="quiet">Use only details you know are right. Leave out customer names and street addresses.</p>
+<div class="actions"><button id="backPhotos" class="secondary">Back to photos</button><button id="toReady" class="primary">Next: get ready to post</button></div>
+<button id="skipWords" class="text-button">Skip the words</button>
+</section>
+<section id="step3" aria-labelledby="heading3" hidden>
+<h2 id="heading3" tabindex="-1">3. Ready for your post</h2>
+<p>Your copies are ready. <strong>Nothing has been posted yet.</strong></p>
+<div id="captionArea"><label for="caption">Your wording — you can edit it here</label><textarea id="caption" rows="7" spellcheck="true"></textarea><button id="copyCaption" class="secondary">Copy the words</button><p id="copyHelp" class="quiet">Then paste them into your post. You can also select and copy the words yourself.</p></div>
+<h3>Save your photos</h3><p>Save each photo below. On iPhone, “Share photos” may also let you save to Photos or choose an app.</p>
+<button id="sharePhotos" class="primary" hidden>Share photos</button>
+<div id="readyPhotos" class="photo-grid"></div>
+<h3>Open the place you want to post</h3>
+<p>Sign in with your own account if asked. Add the saved photos, paste your words, check the post, then choose that app’s Post or Publish button.</p>
+<div class="destinations"><a class="button primary" data-client-link="facebookUrl" href="#" target="_blank" rel="noopener noreferrer">Open Facebook</a><a class="button secondary" data-client-link="googleBusinessUrl" href="#" target="_blank" rel="noopener noreferrer">Open Google Business</a></div>
+<p class="quiet">Facebook opens the existing Facebook link for this business. Choose the right profile or Page before posting. Google photos require access to the business profile; opening Google does not grant access.</p>
+<details><summary>What about my website?</summary><p>This helper prepares photos. It does not update your website. Send the saved copies and your wording to the person who maintains it, or add them through the website’s separate editing process.</p></details>
+<div class="actions"><button id="backWords" class="secondary">Back to the words</button><button id="startAgain" class="text-button">Start another job</button></div>
+</section>
+</div>
+<noscript><p>Please open this helper in Safari, Edge or Chrome with JavaScript enabled.</p></noscript>
+<footer><p>Free to use. No new account needed.</p><p>Photos stay in this browser session. Save prepared copies before closing or refreshing. Your original photos stay on your device. Checkmarks are only your own notes saved in this browser.</p><details><summary>Keep this helper handy</summary><p>On iPhone, open the helper’s web link in Safari. Use Safari’s Share menu, then Add to Home Screen. On Windows, bookmark the web link in Edge or Chrome. If a menu looks different, use the browser bookmark instead.</p></details></footer>
+</main>
+</body></html>
