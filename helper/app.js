@@ -12,10 +12,19 @@ function makeImage(blob){return new Promise((resolve,reject)=>{const url=URL.cre
 function asBlob(canvas){return new Promise((resolve,reject)=>{canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('Could not prepare this photo. Please try a different photo.')),'image/jpeg',0.87);});}
 async function prepare(file){
  if(file.size>50*1024*1024)throw new Error('This photo is too large to open safely here. Please choose a smaller copy.');
- const image=await makeImage(file);const size=PhotoLogic.fitImage(image.naturalWidth,image.naturalHeight);
+ let image;let width;let height;let release=()=>{};
+ try{image=await makeImage(file);width=image.naturalWidth;height=image.naturalHeight;}
+ catch(nativeError){
+  if(!globalThis.PhotoHeic||!await PhotoHeic.isHeic(file))throw nativeError;
+  status('Reading this iPhone photo on your device…');
+  let decoded;try{decoded=await PhotoHeic.decode(file);}catch(_){throw new Error('This iPhone photo could not be prepared. Your other chosen photos are still here.');}
+  const sourceCanvas=document.createElement('canvas');sourceCanvas.width=decoded.width;sourceCanvas.height=decoded.height;const sourceContext=sourceCanvas.getContext('2d');if(!sourceContext)throw new Error('This browser could not prepare the iPhone photo.');sourceContext.putImageData(decoded,0,0);decoded=null;
+  image=sourceCanvas;width=sourceCanvas.width;height=sourceCanvas.height;release=()=>{sourceCanvas.width=1;sourceCanvas.height=1;};
+ }
+ const size=PhotoLogic.fitImage(width,height);
  const canvas=document.createElement('canvas');canvas.width=size.width;canvas.height=size.height;
  const ctx=canvas.getContext('2d');if(!ctx)throw new Error('Photo editing is not available in this browser. Please try Safari, Edge or Chrome.');
- ctx.fillStyle='#ffffff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(image,0,0,canvas.width,canvas.height);
+ ctx.fillStyle='#ffffff';ctx.fillRect(0,0,canvas.width,canvas.height);try{ctx.drawImage(image,0,0,canvas.width,canvas.height);}finally{release();}
  const blob=await asBlob(canvas);return {id:state.nextId++,canvas,blob,url:URL.createObjectURL(blob)};
 }
 function imageCard(photo,index,ready){
